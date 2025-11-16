@@ -33,16 +33,16 @@ void peek(struct Stack *top)
     printf("\nThe top of the stack is %d.\n", top->data);
 }
 
-int pop(struct Stack *top)
+int pop(struct Stack **top)
 {
-    if (isEmpty(top))
+    if (isEmpty(*top))
     {
         printf("Stack Underflow!");
         return 0;
     }
-    struct Stack *temp = top;
-    top = top->next;
+    struct Stack *temp = *top;
     int popedValue = temp->data;
+    *top = temp->next;
     free(temp);
     return popedValue;
 }
@@ -54,10 +54,11 @@ void display(struct Stack *top)
         printf("Stack is Empty!");
         return;
     }
-    printf("%d <--TOS",top->data);
-    for(struct Stack *temp = top->next; temp!=NULL; temp = temp->next)
-    {
-        printf("%d \n",temp->data);
+    printf("%d <--TOS\n",top->data);
+    struct Stack *temp = top->next;
+    while (temp) {
+        printf("%d\n", temp->data);
+        temp = temp->next;
     }
 }
 
