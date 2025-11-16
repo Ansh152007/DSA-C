@@ -1,3 +1,5 @@
+// Develop a C program to implement Stack using Array
+
 #include <stdio.h>
 #define SIZE 100
 struct Stack
