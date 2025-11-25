@@ -137,9 +137,9 @@ int main()
             printf("Number of Nodes: %d\n", NumberoFNodes(root));
             break;
         case 8:
-            exit(0);
+            return 0;
         default:
             printf("Invalid choice! Please try again.\n");
         }
-    }
+    }  
 }
